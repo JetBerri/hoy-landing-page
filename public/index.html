@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>House Of Young</title>
+  <!-- Fuente opcional -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> -->
+
+  <style>
+    /**********************************
+     *          ESTILOS GENERALES
+     **********************************/
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #000; /* Fondo negro */
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /**********************************
+     *          ENCABEZADO / HEADER
+     **********************************/
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-name {
+      height: 80px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav li a {
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav li a:hover {
+      color: #FFD700; /* Dorado */
+    }
+
+    /* Contenedor de banderas (3 idiomas) */
+    .language-options {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .flag {
+      width: 30px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .flag:hover {
+      transform: scale(1.1);
+    }
+
+    /**********************************
+     *          SECCIÓN HERO
+     **********************************/
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 1rem;
+      background: #111; /* Fondo ligeramente diferente */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #FFD700; /* Dorado */
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+
+    /**********************************
+     *         SECCIÓN GALERÍA
+     **********************************/
+    .video-gallery {
+      display: flex;
+      justify-content: space-around;
+      padding: 3rem 0;
+      background-color: #111;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .video-block {
+      width: 30%;
+      background-color: #222;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .video-block video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /**********************************
+     *      SECCIÓN EVERY GUEST IS VIP
+     **********************************/
+    .vip-section {
+      background-color: #000;
+      padding: 3rem 1rem;
+    }
+
+    .vip-section .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .vip-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: #FFD700;
+    }
+
+    .vip-section p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .vip-section ul {
+      list-style: disc;
+      margin-left: 2rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    /**********************************
+     *          SECCIÓN EVENTOS
+     **********************************/
+    .eventos {
+      padding: 3rem 0;
+    }
+
+    .eventos h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #FFD700;
+      text-transform: uppercase;
+    }
+
+    .evento-card {
+      background-color: #222;
+      padding: 2rem;
+      margin: 0 auto 2rem auto;
+      max-width: 800px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .evento-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #FFD700;
+    }
+
+    .evento-card p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .evento-card ul {
+      list-style: inside disc;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .boton-evento {
+      display: block;
+      background-color: #FFD700;
+      color: #000;
+      padding: 0.8rem 1.2rem;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 2rem auto;
+      text-align: center;
+
+      /* Estilos mejorados */
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .boton-evento:hover {
+      background-color: #FFC400;
+      transform: scale(1.05);
+    }
+
+    /**********************************
+     *       SECCIÓN FAQ (ACORDEÓN)
+     **********************************/
+    .faq-section {
+      padding: 3rem 0;
+    }
+
+    .faq-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #FFD700;
+      text-transform: uppercase;
+    }
+
+    .faq-subtitle {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      color: #FFD700;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1rem;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #FFD700;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .faq-question:hover {
+      color: #FFC400;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-left: 0.5rem;
+    }
+
+    .faq-answer ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .faq-answer p,
+    .faq-answer li {
+      margin: 0.5rem 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 600px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /***************************************************
+     *     FORMULARIO (OVERLAY) - POPUP
+     ***************************************************/
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .formulario {
+      background-color: #111;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .formulario h3 {
+      margin-bottom: 1.5rem;
+      color: #FFD700;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group select,
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .form-group select:focus,
+    .form-group input:focus {
+      outline: none;
+      border-color: #FFD700;
+    }
+
+    .btn-submit {
+      background-color: #FFD700;
+      color: #000;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn-submit:hover {
+      background-color: #FFC400;
+    }
+
+    .close-btn {
+      background: none;
+      color: #FFD700;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    /**********************************
+     *          FOOTER
+     **********************************/
+    footer#contacto {
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      background: linear-gradient(45deg, #111, #333);
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-info img {
+      width: 20px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    .contact-info a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      color: #FFC400;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /************************************
+     *        ANIMACIONES SCROLL
+     ************************************/
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="container">
+    <div class="header-left">
+      <img class="brand-name" src="gold-hoy.png" alt="House of Young Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#eventos" id="navEvents">House Of Young</a></li>
+        <li><a href="#galeria" id="navGallery">Galería</a></li>
+        <li><a href="#contacto" id="navContact">Contacto</a></li>
+      </ul>
+    </nav>
+    <!-- Contenedor de banderas (3 idiomas) -->
+    <div class="language-options">
+      <img src="flag_es.png" alt="ES" class="flag" data-lang="es">
+      <img src="flag_en.png" alt="EN" class="flag" data-lang="en">
+      <img src="flag_fr.png" alt="FR" class="flag" data-lang="fr">
+    </div>
+  </header>
+
+  <!-- SECCIÓN HERO (video de fondo) -->
+  <section class="hero reveal" id="hero">
+    <video autoplay muted loop>
+      <source src="background.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+    <div class="container">
+      <h1 id="heroTitle">Vive la Experiencia</h1>
+      <p id="heroParagraph">
+        Somos una empresa de eventos dedicada a crear momentos inolvidables y
+        experiencias únicas. Nuestro enfoque es ofrecer fiestas y reuniones
+        exclusivas con todo incluido para que solo te dediques a disfrutar.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN GALERÍA DE VIDEOS -->
+  <section id="galeria" class="video-gallery container reveal">
+    <div class="video-block">
+      <video controls>
+        <source src="video_block_1.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+    <div class="video-block">
+      <video controls>
+        <source src="video_block_2.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+    <div class="video-block">
+      <video controls>
+        <source src="video_block_3.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+  </section>
+
+  <!-- EVERY GUEST IS VIP (sin imágenes) -->
+  <section class="vip-section reveal">
+    <div class="container">
+      <h2>Every Guest is VIP</h2>
+      <p>
+        On arrival, you will be welcomed to tapas and are entitled to unlimited 
+        (water, beer, sangria, beverages) throughout the night.
+      </p>
+      <p>
+        Through the night you’ll be kept on your feet by the best DJs 
+        Valencia has to offer, featuring afrohouse and special sax performances.
+      </p>
+      <p>Expect:</p>
+      <ul>
+        <li>A private space with a breathtaking view</li>
+        <li>World class DJs and entertainment</li>
+        <li>VIP Treatment</li>
+        <li>Guaranteed transportation</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EVENTO PRINCIPAL (with full "What to Expect" text) -->
+  <section id="eventos" class="eventos container reveal">
+    <h2 id="eventTitle">Próximos Eventos</h2>
+    <div class="evento-card">
+      <h3 id="eventoCardTitle">House Of Young: Private Villa Experience</h3>
+      <p>
+        <strong id="whatExpectTitle">What to expect:</strong><br>
+        <span id="whatExpectBody">
+          This event will be held on the <strong>5th of April</strong> at Loriguilla 
+          (20 minutes away from Valencia). The event starts at <strong>20:00</strong> 
+          and ends at <strong>04:00</strong>. Transportation provided from a 
+          disclosed location in Valencia at <strong>19:30</strong> 
+          (return at <strong>04:30</strong>). Exclusively available to 120 people, 
+          dress code is comfortable yet elegant.
+        </span>
+      </p>
+      <p id="eventoCardDesc">
+        Únete a nosotros en una noche inolvidable con música en vivo,
+        DJ internacional y el mejor ambiente. ¡No te lo puedes perder!
+      </p>
+      <ul>
+        <li id="eventoList1">Todo Incluido: bebidas y snacks ilimitados</li>
+        <li id="eventoList2">Transporte incluido (ida y vuelta)</li>
+        <li id="eventoList3">Shows en vivo y sorpresas</li>
+      </ul>
+      <button class="boton-evento" id="btnQuieroIr" onclick="abrirFormulario()">¡Quiero ir!</button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section container reveal">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+
+    <!-- GENERAL INFORMATION -->
+    <h3 class="faq-subtitle" id="faqSubtitleGeneral">General Information</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ1">1. What does the ticket price include?</div>
+      <div class="faq-answer" id="faqA1">
+        <p>Your ticket includes:</p>
+        <ul>
+          <li>Free transportation (pickup and drop-off from a specific location).</li>
+          <li>Tapas on arrival.</li>
+          <li>Unlimited beer, sangria, water, and non-alcoholic beverages.</li>
+          <li>Access to the villa and entertainment.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ2">2. Where is the event taking place?</div>
+      <div class="faq-answer" id="faqA2">
+        <p>
+          The villa is located in loriguilla (Valencia countryside). 
+          The exact address will be shared with confirmed guests.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ3">3. What time does the event start and end?</div>
+      <div class="faq-answer" id="faqA3">
+        <ul>
+          <li>Pickup time: 19.30</li>
+          <li>Event duration: 20.00 - 04.00</li>
+          <li>Drop-off time: 4.10</li>
+        </ul>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ4">4. How do I get to the pickup location?</div>
+      <div class="faq-answer" id="faqA4">
+        <p>
+          We will provide a central meeting point in Valencia, easily accessible 
+          by public transport and taxis.
+        </p>
+      </div>
+    </div>
+
+    <!-- FOOD & DRINKS -->
+    <h3 class="faq-subtitle" id="faqSubtitleFood">Food & Drinks</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ5">5. What food is included?</div>
+      <div class="faq-answer" id="faqA5">
+        <p>
+          Tapas will be served upon arrival. Additional meals will be available for 
+          purchase, priced between €5-10.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ6">6. What drinks are included?</div>
+      <div class="faq-answer" id="faqA6">
+        <p>Unlimited beer, sangria, water, and soft drinks.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ7">7. Can I bring my own alcohol?</div>
+      <div class="faq-answer" id="faqA7">
+        <p>
+          No outside alcohol is allowed. However, stronger liquor 
+          (vodka, whiskey, rum, etc.) will be available for purchase 
+          at €5 per drink.
+        </p>
+      </div>
+    </div>
+
+    <!-- TICKETS & PAYMENT -->
+    <h3 class="faq-subtitle" id="faqSubtitleTickets">Tickets & Payment</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ8">8. How do I buy a ticket?</div>
+      <div class="faq-answer" id="faqA8">
+        <p>
+          Tickets can be purchased via bank transfer, or through a promoter.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ9">9. Are refunds available?</div>
+      <div class="faq-answer" id="faqA9">
+        <p>
+          Tickets are non-refundable but can be transferred to another person.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ10">10. Can I pay at the door?</div>
+      <div class="faq-answer" id="faqA10">
+        <p>
+          No, all tickets must be purchased in advance to secure your spot.
+        </p>
+      </div>
+    </div>
+
+    <!-- RULES & POLICIES -->
+    <h3 class="faq-subtitle" id="faqSubtitleRules">Rules & Policies</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ11">11. Is there a dress code?</div>
+      <div class="faq-answer" id="faqA11">
+        <p>Casual and comfortable, but dress to impress.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ12">12. Are there age restrictions?</div>
+      <div class="faq-answer" id="faqA12">
+        <p>The event is 18+. ID checks may be required.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ13">13. Is there a security check?</div>
+      <div class="faq-answer" id="faqA13">
+        <p>
+          Yes, for safety reasons, all guests will be checked at the entrance.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ14">14. Can I leave and come back?</div>
+      <div class="faq-answer" id="faqA14">
+        <p>
+          There is enough space to walk around the compound. Leaving the building
+          would be restricted as drinking is not allowed on the streets.
+        </p>
+      </div>
+    </div>
+
+    <!-- OTHER QUESTIONS -->
+    <h3 class="faq-subtitle" id="faqSubtitleOther">Other Questions</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ15">16. Can I bring a plus-one?</div>
+      <div class="faq-answer" id="faqA15">
+        <p>
+          All guests must have been allocated a number before the event.
+          Limited slots available, so book early!
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ16">17. What happens if I miss the pickup?</div>
+      <div class="faq-answer" id="faqA16">
+        <p>
+          We recommend arriving early, as transportation is scheduled.
+          If you miss the pickup, you will need to arrange your own transport.
+          Your space on the bus will still be reserved to take you back
+          to Valencia if need be.
+        </p>
+      </div>
+    </div>
+
+    <!-- INDOOR & OUTDOOR PARTY GUIDELINES -->
+    <h3 class="faq-subtitle" id="faqSubtitleIndoor">Indoor & Outdoor Party</h3>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ17">17. Can we stay outside after 10 PM?</div>
+      <div class="faq-answer" id="faqA17">
+        <p>
+          Yes, you can stay outdoors to relax and socialize, 
+          but music will be turned off after 10 PM.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ18">18. Will there still be music and entertainment after 10 PM?</div>
+      <div class="faq-answer" id="faqA18">
+        <p>
+          Yes! The indoor party will continue with music, dancing, 
+          and entertainment until 4 AM.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ19">19. Can I go back and forth between indoor and outdoor areas?</div>
+      <div class="faq-answer" id="faqA19">
+        <p>
+          Yes, but all loud activities, including music and dancing,
+          will take place indoors after 10 PM.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ20">22. Will there be a limit on alcohol consumption?</div>
+      <div class="faq-answer" id="faqA20">
+        <p>
+          Guests can enjoy unlimited beer, sangria, water, and non-alcoholic beverages.
+          However, responsible drinking is encouraged, and staff may refuse service if necessary.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" id="faqQ21">23. What happens if a guest appears too intoxicated?</div>
+      <div class="faq-answer" id="faqA21">
+        <p>
+          For safety reasons, guests showing clear signs of intoxication 
+          will not be served more alcohol. Security or event staff may 
+          intervene if necessary to ensure a safe environment for everyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERLAY Y FORMULARIO -->
+  <div id="overlay" class="overlay">
+    <div class="formulario">
+      <button class="close-btn" onclick="cerrarFormulario()">X</button>
+      <h3 id="formTitle">Regístrate para el Evento</h3>
+      <form id="registerForm">
+        <div class="form-group">
+          <label id="formLabelNombre" for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label id="formLabelEmail" for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+        </div>
+        <div class="form-group">
+          <label id="formLabelUbicacion" for="zonaValencia">Ubicación (zona de Valencia):</label>
+          <select id="zonaValencia" name="zonaValencia" required>
+            <option value="">Cargando barrios...</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit" id="formBtnSubmit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contacto">
+    <div class="contact-info">
+      <p>
+        <span id="contactTitle">Contacto:</span>
+        <a href="mailto:business@fromthehouseofyoung.com">business@fromthehouseofyoung.com</a>
+      </p>
+      <p>
+        <img src="ig_logo.png" alt="Instagram Logo">
+        <a href="https://instagram.com/fromthehouseofyoung" target="_blank">@fromthehouseofyoung</a>
+      </p>
+    </div>
+    <p>
+      &copy; 2025 House Of Young.
+      <span id="footerRights">Todos los derechos reservados.</span>
+    </p>
+  </footer>
+
+  <!-- SCRIPTS: TRADUCCIONES, FORMULARIO, ETC. -->
+  <script>
+    /******************************************************
+     * LÓGICA MULTI-IDIOMA (3 idiomas: ES, EN, FR)
+     * LÓGICA DE FORMULARIO
+     * CARGAR BARRIOS (locs.json)
+     * SCROLL REVEAL
+     * ACORDEÓN FAQ
+     ******************************************************/
+
+    const translationsMain = {
+      es: {
+        navEvents: "House Of Young",
+        navGallery: "Galería",
+        navContact: "Contacto",
+
+        heroTitle: "Vive la Experiencia",
+        heroParagraph: "Somos una empresa de eventos dedicada a crear momentos inolvidables y experiencias únicas...",
+
+        eventTitle: "Próximos Eventos",
+        eventoCardTitle: "House Of Young: Private Villa Experience",
+        eventoCardDesc: "Únete a nosotros en una noche inolvidable con música en vivo...",
+        eventoList1: "Todo Incluido: bebidas y snacks ilimitados",
+        eventoList2: "Transporte incluido (ida y vuelta)",
+        eventoList3: "Shows en vivo y sorpresas",
+        btnQuieroIr: "¡Quiero ir!",
+
+        formTitle: "Regístrate para el Evento",
+        formLabelNombre: "Nombre completo:",
+        formLabelEmail: "Correo electrónico:",
+        formLabelUbicacion: "Ubicación (zona de Valencia):",
+        formBtnSubmit: "Enviar",
+
+        contactTitle: "Contacto:",
+        footerRights: "Todos los derechos reservados.",
+
+        faqSubtitleGeneral: "Información General",
+        faqSubtitleFood: "Comida y Bebidas",
+        faqSubtitleTickets: "Boletos y Pago",
+        faqSubtitleRules: "Reglas y Políticas",
+        faqSubtitleOther: "Otras Preguntas",
+        faqSubtitleIndoor: "Fiesta Interior y Exterior",
+
+        whatExpectTitle: "Qué esperar:",
+        whatExpectBody: "Este evento se llevará a cabo el 5 de abril en Loriguilla (a 20 minutos de Valencia). El evento comienza a las 20:00 y termina a las 04:00. Se proporcionará transporte desde un lugar de Valencia a las 19:30 (regreso a las 04:30). Exclusivamente disponible para 120 personas, el código de vestimenta es cómodo pero elegante."
+      },
+      en: {
+        navEvents: "House Of Young",
+        navGallery: "Gallery",
+        navContact: "Contact",
+
+        heroTitle: "Live the Experience",
+        heroParagraph: "We are an event company dedicated to creating unforgettable moments and unique experiences...",
+
+        eventTitle: "Upcoming Events",
+        eventoCardTitle: "House Of Young: Private Villa Experience",
+        eventoCardDesc: "Join us for an unforgettable night with live music...",
+        eventoList1: "All Inclusive: unlimited drinks and snacks",
+        eventoList2: "Transportation included (round trip)",
+        eventoList3: "Live shows and surprises",
+        btnQuieroIr: "I Want to Go!",
+
+        formTitle: "Register for the Event",
+        formLabelNombre: "Full Name:",
+        formLabelEmail: "Email:",
+        formLabelUbicacion: "Location (Valencia zone):",
+        formBtnSubmit: "Send",
+
+        contactTitle: "Contact:",
+        footerRights: "All rights reserved.",
+
+        faqSubtitleGeneral: "General Information",
+        faqSubtitleFood: "Food & Drinks",
+        faqSubtitleTickets: "Tickets & Payment",
+        faqSubtitleRules: "Rules & Policies",
+        faqSubtitleOther: "Other Questions",
+        faqSubtitleIndoor: "Indoor & Outdoor Party",
+
+        whatExpectTitle: "What to Expect:",
+        whatExpectBody: "This event will be held on the 5th of April at Loriguilla (20 minutes away from Valencia). The event starts at 20:00 and ends at 04:00. Transportation is provided from a disclosed location in Valencia at 19:30 (return at 04:30). Exclusively available to 120 people, dress code is comfortable yet elegant."
+      },
+      fr: {
+        navEvents: "House Of Young",
+        navGallery: "Galerie",
+        navContact: "Contact",
+
+        heroTitle: "Vivez l'Expérience",
+        heroParagraph: "Nous sommes une entreprise d'événements dédiée à créer des moments inoubliables et des expériences uniques...",
+
+        eventTitle: "Événements à Venir",
+        eventoCardTitle: "House Of Young: Expérience Villa Privée",
+        eventoCardDesc: "Rejoignez-nous pour une nuit inoubliable avec de la musique live...",
+        eventoList1: "Tout Inclus: boissons et collations illimitées",
+        eventoList2: "Transport inclus (aller-retour)",
+        eventoList3: "Spectacles en direct et surprises",
+        btnQuieroIr: "Je veux y aller!",
+
+        formTitle: "Inscrivez-vous à l'Événement",
+        formLabelNombre: "Nom complet:",
+        formLabelEmail: "Adresse e-mail:",
+        formLabelUbicacion: "Emplacement (zone de Valence):",
+        formBtnSubmit: "Envoyer",
+
+        contactTitle: "Contact:",
+        footerRights: "Tous droits réservés.",
+
+        faqSubtitleGeneral: "Informations Générales",
+        faqSubtitleFood: "Nourriture & Boissons",
+        faqSubtitleTickets: "Billets & Paiement",
+        faqSubtitleRules: "Règles & Politiques",
+        faqSubtitleOther: "Autres Questions",
+        faqSubtitleIndoor: "Fête Intérieure & Extérieure",
+
+        whatExpectTitle: "À quoi s'attendre:",
+        whatExpectBody: "Cet événement aura lieu le 5 avril à Loriguilla (à 20 minutes de Valence). L'événement commence à 20h00 et se termine à 04h00. Le transport est fourni depuis un lieu communiqué à Valence à 19h30 (retour à 04h30). Exclusivement disponible pour 120 personnes, le code vestimentaire est confortable mais élégant."
+      }
+    };
+
+    let currentLanguage = "es";
+
+    // Aplica traducciones en base al idioma
+    function applyTranslations(language) {
+      const keys = Object.keys(translationsMain[language]);
+      keys.forEach(key => {
+        const el = document.getElementById(key);
+        if (!el) return;
+
+        switch (key) {
+          case "formLabelNombre":
+            el.textContent = translationsMain[language][key];
+            document.getElementById("nombre").placeholder =
+              (language === "es") ? "Ingresa tu nombre"
+              : (language === "en") ? "Enter your name"
+              : "Entrez votre nom";
+            break;
+
+          case "formLabelEmail":
+            el.textContent = translationsMain[language][key];
+            document.getElementById("email").placeholder =
+              (language === "es") ? "Ingresa tu email"
+              : (language === "en") ? "Enter your email"
+              : "Entrez votre email";
+            break;
+
+          case "formLabelUbicacion":
+            el.textContent = translationsMain[language][key];
+            break;
+
+          case "formBtnSubmit":
+            el.textContent = translationsMain[language][key];
+            break;
+
+          case "whatExpectTitle":
+            el.textContent = translationsMain[language][key];
+            break;
+
+          case "whatExpectBody":
+            el.textContent = translationsMain[language][key];
+            break;
+
+          default:
+            el.textContent = translationsMain[language][key];
+            break;
+        }
+      });
+    }
+
+    // Selección de idioma por banderas
+    function selectLanguage(lang) {
+      currentLanguage = lang;
+      applyTranslations(lang);
+    }
+
+    // FORMULARIO emergente
+    const overlay = document.getElementById("overlay");
+    function abrirFormulario() {
+      overlay.style.display = 'flex';
+    }
+    function cerrarFormulario() {
+      overlay.style.display = 'none';
+    }
+
+    // CARGAR BARRIOS
+    async function cargarBarrios() {
+      try {
+        const response = await fetch("locs.json");
+        if (!response.ok) throw new Error("Error al cargar locs.json");
+        const data = await response.json();
+        const selectZona = document.getElementById("zonaValencia");
+        selectZona.innerHTML = "";
+        data.forEach(barrio => {
+          const option = document.createElement("option");
+          option.value = barrio;
+          option.textContent = barrio;
+          selectZona.appendChild(option);
+        });
+      } catch (err) {
+        console.error(err);
+        document.getElementById("zonaValencia").innerHTML =
+          "<option value=''>No hay barrios disponibles</option>";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Traducción inicial (español)
+      applyTranslations(currentLanguage);
+
+      // IntersectionObserver reveal
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(r => observer.observe(r));
+
+      // Carga barrios de locs.json
+      cargarBarrios();
+
+      // Formulario submit
+      document.getElementById("registerForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const zonaValencia = document.getElementById("zonaValencia").value;
+
+        try {
+          const response = await fetch("/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nombre, email, zonaValencia })
+          });
+          if (!response.ok) throw new Error("Error en el registro");
+          const result = await response.json();
+          alert(result.message || "¡Registro exitoso!");
+          cerrarFormulario();
+        } catch (error) {
+          console.error(error);
+          alert("Hubo un problema al guardar tus datos");
+        }
+      });
+
+      // Acordeón en FAQ
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+
+      // Evento para las banderas
+      document.querySelectorAll('.flag').forEach(flag => {
+        flag.addEventListener('click', () => {
+          const lang = flag.dataset.lang; // 'es', 'en', 'fr'
+          selectLanguage(lang);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
